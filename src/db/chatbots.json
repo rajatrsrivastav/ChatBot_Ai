@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Customer Support Bot",
+    "context": "Handles customer inquiries and support tickets",
+    "creator": "dummyuser@example.com"
+  },
+  {
+    "name": "Sales Assistant",
+    "context": "Helps with product recommendations and sales inquiries",
+    "creator": "dummyuser@example.com"
+  },
+  {
+    "name": "Fitness Coach",
+    "context": "Provides workout recommendations and fitness advice based on your goals.",
+    "creator": "dummyuser@example.com"
+  },
+  {
+    "name": "Language Tutor",
+    "context": "Helps you practice and learn new languages through conversation.",
+    "creator": "dummyuser@example.com"
+  },
+  {
+    "name": "Productivity Assistant",
+    "context": "Helps you manage tasks, set reminders, and stay organized.",
+    "creator": "dummyuser@example.com"
+  },
+  {
+    "name": "Travel Planner",
+    "context": "Assists with travel planning, recommendations, and itineraries.",
+    "creator": "dummyuser@example.com"
+  }
+]
