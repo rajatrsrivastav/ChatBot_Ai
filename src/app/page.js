@@ -28,7 +28,7 @@ export default function Home() {
                 </div>
                 <div className="homepage-message homepage-bot-message">
                   <p>
-                    You can create a custom chatbot in just a few steps! Go to your Dashboard, click "Add Chatbot", then
+                    You can create a custom chatbot in just a few steps! Go to your Dashboard, click Add Chatbot, then
                     give it a name and context. Your bot will be ready to use instantly.
                   </p>
                 </div>
@@ -37,33 +37,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="homepage-features">
-        <h2>Why Choose PeerBot?</h2>
-        <div className="homepage-features-grid">
-          <div className="homepage-feature-card">
-            <div className="homepage-feature-icon">🚀</div>
-            <h3>Instant Guidance</h3>
-            <p>Get immediate help for junior employees, interns, or solo users without waiting for human assistance.</p>
-          </div>
-          <div className="homepage-feature-card">
-            <div className="homepage-feature-icon">🔍</div>
-            <h3>Personalized Assistance</h3>
-            <p>Create custom chatbots tailored to specific needs, workflows, or knowledge domains.</p>
-          </div>
-          <div className="homepage-feature-card">
-            <div className="homepage-feature-icon">🔄</div>
-            <h3>Easy Integration</h3>
-            <p>Coming soon: Connect with your company's tools and knowledge bases for enhanced capabilities.</p>
-          </div>
-          <div className="homepage-feature-card">
-            <div className="homepage-feature-icon">👥</div>
-            <h3>Team Collaboration</h3>
-            <p>Future updates will enable team knowledge workflows and shared bot management.</p>
-          </div>
-        </div>
-      </section>
-
       <section className="homepage-use-cases">
         <h2>Popular Use Cases</h2>
         <div className="homepage-use-cases-grid">
@@ -121,7 +94,7 @@ export default function Home() {
               Sign Up Free
             </a>
             <a href="/explore" className="homepage-secondary-button">
-              Explore Templates
+              Explore Bots
             </a>
           </div>
         </div>

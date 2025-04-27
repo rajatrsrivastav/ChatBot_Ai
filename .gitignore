@@ -18,5 +18,3 @@ out/
 # vercel deployment folder
 .vercel/
 
-# optional: ignore local database files if real data is there
-db/

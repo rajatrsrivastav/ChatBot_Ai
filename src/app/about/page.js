@@ -27,7 +27,7 @@ const About = () => {
         <div className="about-vision-content">
           <h2>Our Vision</h2>
           <p>
-            We're building PeerBot to be the go-to platform for personalized AI assistance. Our current focus is on
+            We are building PeerBot to be the go-to platform for personalized AI assistance. Our current focus is on
             providing instant guidance for individuals, but our roadmap includes:
           </p>
           <ul className="about-vision-list">
@@ -46,7 +46,7 @@ const About = () => {
             <div className="about-step-number">1</div>
             <div className="about-step-content">
               <h3>Create Your Bot</h3>
-              <p>Define your bot's purpose and provide context about what it should know and how it should respond.</p>
+              <p>Define your bot purpose and provide context about what it should know and how it should respond.</p>
             </div>
           </div>
           <div className="about-process-step">

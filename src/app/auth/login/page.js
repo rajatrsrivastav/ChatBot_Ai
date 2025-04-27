@@ -46,20 +46,25 @@ function Login() {
       <form className="form_main1" onChange={handleForm} onSubmit={handleSubmit}>
         <label className="label_form">Email</label>
         <br/>
-        <input className="input_form" name="email" type="email" placeholder="email" />
+        <input className="input_form" name="email" type="email" placeholder="dummyuser@example.com" />
         <br/>
         <label className="label_form1">Password</label>
         <br/>
-        <input className="input_form" name="password" type="password" placeholder="password" />
+        <input className="input_form" name="password" type="password" placeholder="password123" />
         <br/>
         <button className="buttonn_form" type="submit">Login</button>
       </form>
       <hr className="hr2"></hr>
       <p>
-        Don't have an account? <Link className="link" href="/auth/signup">Signup</Link> first
+        Do not have an account? <Link className="link" href="/auth/signup">Signup</Link> first
       </p>
       </div>
-      
+      <div className="demo-credentials">
+          <p>Want to try without signing up? Use demo account:
+          </p>
+          <p>dummyuser@example.com</p>
+          <p>password123</p>
+        </div>
     </div>
   );
 }

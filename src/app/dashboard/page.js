@@ -22,7 +22,7 @@ const Dashboard = () => {
     getChatBots({ token: getToken() }).then((res) => {
       setChatbots(res)
     })
-  }, [])
+  }, [setChatbots])  // Add setChatbots as a dependency
 
   if (!isLoggedIn) {
     return (
@@ -85,7 +85,7 @@ const Dashboard = () => {
         <h2>Your Chatbots</h2>
         <div className="bot-list">
           {chatbots.length === 0 ? (
-            <p className="no-bots">You haven't created any chatbots yet.</p>
+            <p className="no-bots">You have not created any chatbots yet.</p>
           ) : (
             chatbots.map((bot, index) => (
               <div key={index} className="bot-item">
