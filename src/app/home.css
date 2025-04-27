@@ -1,0 +1,409 @@
+.homepage-container {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #333;
+  }
+  
+  .homepage-hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+  
+  .homepage-hero-content {
+    flex: 1;
+    max-width: 600px;
+  }
+  
+  .homepage-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+  
+  .homepage-hero p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .homepage-hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .homepage-primary-button {
+    display: inline-block;
+    background-color: #6c5ce7;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  .homepage-primary-button:hover {
+    background-color: #5649c0;
+  }
+  
+  .homepage-secondary-button {
+    display: inline-block;
+    background-color: transparent;
+    color: #6c5ce7;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid #6c5ce7;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .homepage-secondary-button:hover {
+    background-color: rgba(108, 92, 231, 0.1);
+  }
+  
+  .homepage-hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .homepage-image-placeholder {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .homepage-chat-bubble {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .homepage-chat-header {
+    background-color: #6c5ce7;
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+  }
+  
+  .homepage-chat-messages {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .homepage-message {
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    max-width: 80%;
+  }
+  
+  .homepage-user-message {
+    background-color: #f1f1f1;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  
+  .homepage-bot-message {
+    background-color: #6c5ce7;
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  
+  .homepage-message p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  .homepage-features {
+    background-color: #f8f9fa;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  
+  .homepage-features h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+  }
+  
+  .homepage-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .homepage-feature-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .homepage-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .homepage-feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .homepage-feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+  }
+  
+  .homepage-feature-card p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Use Cases Section */
+  .homepage-use-cases {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .homepage-use-cases h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #1a1a1a;
+  }
+  
+  .homepage-use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .homepage-use-case {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #6c5ce7;
+  }
+  
+  .homepage-use-case h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+  }
+  
+  .homepage-use-case p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .homepage-use-case-link {
+    color: #6c5ce7;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .homepage-use-case-link:hover {
+    text-decoration: underline;
+  }
+  
+  .homepage-how-it-works {
+    background-color: #f8f9fa;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  
+  .homepage-how-it-works h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+  }
+  
+  .homepage-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .homepage-step {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+  .homepage-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #6c5ce7;
+    color: white;
+    font-weight: 700;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .homepage-step h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+  }
+  
+  .homepage-step p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .homepage-cta {
+    background-color: #6c5ce7;
+    color: white;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  
+  .homepage-cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .homepage-cta h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  
+  .homepage-cta p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  
+  .homepage-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .homepage-cta .homepage-primary-button {
+    background-color: white;
+    color: #6c5ce7;
+  }
+  
+  .homepage-cta .homepage-primary-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .homepage-cta .homepage-secondary-button {
+    color: white;
+    border-color: white;
+  }
+  
+  .homepage-cta .homepage-secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 992px) {
+    .homepage-hero {
+      flex-direction: column;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+  
+    .homepage-hero-content {
+      max-width: 100%;
+    }
+  
+    .homepage-hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .homepage-hero-buttons {
+      justify-content: center;
+    }
+  
+    .homepage-features,
+    .homepage-use-cases,
+    .homepage-how-it-works,
+    .homepage-cta {
+      padding: 4rem 1.5rem;
+    }
+  
+    .homepage-features h2,
+    .homepage-use-cases h2,
+    .homepage-how-it-works h2,
+    .homepage-cta h2 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .homepage-hero h1 {
+      font-size: 2rem;
+    }
+  
+    .homepage-hero p,
+    .homepage-cta p {
+      font-size: 1rem;
+    }
+  
+    .homepage-features h2,
+    .homepage-use-cases h2,
+    .homepage-how-it-works h2,
+    .homepage-cta h2 {
+      font-size: 1.75rem;
+    }
+  
+    .homepage-primary-button,
+    .homepage-secondary-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  

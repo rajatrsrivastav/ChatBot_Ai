@@ -1,0 +1,126 @@
+.explore-container {
+  max-width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.explore-container .explore_main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.explore-container .explore {
+  margin-bottom: 2rem;
+}
+
+.explore-container .explore_text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+.explore-container .explore_text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.explore-container .chatbot-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.explore-container .chatbot-item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.explore-container .chatbot-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.explore-container .chatbot-info {
+  flex: 1;
+}
+
+.explore-container .chatbot-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #1a1a1a;
+}
+
+.explore-container .chatbot-context {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.explore-container .created {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.explore-container .created p:first-child {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.explore-container .created p:last-child {
+  color: #555;
+}
+
+.explore-container .chat-button {
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.2s;
+}
+
+.explore-container .chat-button:hover {
+  background-color: #5649c0;
+}
+
+@media (max-width: 768px) {
+  .explore-container .explore_main {
+    padding: 1.5rem;
+  }
+
+  .explore-container .explore_text h1 {
+    font-size: 2rem;
+  }
+
+  .explore-container .chatbot-items {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .explore-container .explore_text h1 {
+    font-size: 1.75rem;
+  }
+
+  .explore-container .explore_text p {
+    font-size: 1rem;
+  }
+
+  .explore-container .chatbot-items {
+    grid-template-columns: 1fr;
+  }
+}

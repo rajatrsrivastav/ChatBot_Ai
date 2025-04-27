@@ -1,0 +1,260 @@
+.about-container {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #333;
+  }
+  
+  .about-hero {
+    background-color: #6c5ce7;
+    color: white;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  
+  .about-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-hero p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+  
+  .about-mission {
+    padding: 5rem 2rem;
+    background-color: white;
+  }
+  
+  .about-mission-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-mission h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+    text-align: center;
+  }
+  
+  .about-mission p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #555;
+  }
+  
+  /* Vision Section */
+  .about-vision {
+    padding: 5rem 2rem;
+    background-color: #f8f9fa;
+  }
+  
+  .about-vision-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-vision h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+    text-align: center;
+  }
+  
+  .about-vision p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #555;
+  }
+  
+  .about-vision-list {
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .about-vision-list li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    color: #555;
+  }
+  
+  /* How It Works Section */
+  .about-how-it-works {
+    padding: 5rem 2rem;
+    background-color: white;
+  }
+  
+  .about-how-it-works h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+    text-align: center;
+  }
+  
+  .about-process {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-process-step {
+    display: flex;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+  }
+  
+  .about-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #6c5ce7;
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  .about-step-content {
+    flex: 1;
+  }
+  
+  .about-step-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1a1a1a;
+  }
+  
+  .about-step-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* CTA Section */
+  .about-cta {
+    background-color: #6c5ce7;
+    color: white;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  
+  .about-cta h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-cta p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .about-primary-button {
+    display: inline-block;
+    background-color: white;
+    color: #6c5ce7;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  .about-primary-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .about-secondary-button {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid white;
+    transition: background-color 0.2s;
+  }
+  
+  .about-secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-hero {
+      padding: 4rem 1.5rem;
+    }
+  
+    .about-hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .about-mission,
+    .about-vision,
+    .about-how-it-works,
+    .about-cta {
+      padding: 4rem 1.5rem;
+    }
+  
+    .about-mission h2,
+    .about-vision h2,
+    .about-how-it-works h2,
+    .about-cta h2 {
+      font-size: 2rem;
+    }
+  
+    .about-process-step {
+      flex-direction: column;
+    }
+  
+    .about-step-number {
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .about-hero h1 {
+      font-size: 2rem;
+    }
+  
+    .about-hero p,
+    .about-cta p {
+      font-size: 1rem;
+    }
+  
+    .about-primary-button,
+    .about-secondary-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
