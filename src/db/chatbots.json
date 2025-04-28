@@ -28,5 +28,10 @@
     "name": "Travel Planner",
     "context": "Assists with travel planning, recommendations, and itineraries.",
     "creator": "dummyuser@example.com"
+  },
+  {
+    "name": "trainer",
+    "context": "describe my routine",
+    "creator": "dummyuser@example.com"
   }
 ]

@@ -21,8 +21,8 @@ export async function POST(req) {
         status: 400,
         headers: { "Content-Type": "application/json" },
       });
-    }
-    const token = await registerToken(email);
+    } 
+    const token = await registerToken(email); 
     return new Response(
       JSON.stringify({ token, message: "User logged in successfully" }),
       {
