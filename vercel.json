@@ -1,7 +1,9 @@
 {
-    "functions": {
-      "src/app/api/**/*.js": {
-        "includeFiles": "src/db/**/*"
-      }
+  "functions": {
+    "src/app/api/**/*.js": {
+      "includeFiles": [
+        "src/db/**/*"
+      ]
     }
+  }
 }
