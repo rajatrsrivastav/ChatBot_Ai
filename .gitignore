@@ -18,3 +18,4 @@ out/
 # vercel deployment folder
 .vercel/
 
+.vercel

@@ -22,23 +22,6 @@ const About = () => {
           </p>
         </div>
       </section>
-
-      <section className="about-vision">
-        <div className="about-vision-content">
-          <h2>Our Vision</h2>
-          <p>
-            We are building PeerBot to be the go-to platform for personalized AI assistance. Our current focus is on
-            providing instant guidance for individuals, but our roadmap includes:
-          </p>
-          <ul className="about-vision-list">
-            <li>Company-specific integrations to connect with your existing tools</li>
-            <li>Team knowledge workflows for collaborative bot creation and management</li>
-            <li>Advanced customization options for specialized use cases</li>
-            <li>Enterprise-grade security and compliance features</li>
-          </ul>
-        </div>
-      </section>
-
       <section className="about-how-it-works">
         <h2>How PeerBot Works</h2>
         <div className="about-process">
