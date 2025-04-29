@@ -19,3 +19,7 @@ out/
 .vercel/
 
 .vercel
+
+!src/db/chatbots.json
+!src/db/users.json
+!src/db/tokenRegistry.json
