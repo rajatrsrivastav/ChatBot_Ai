@@ -1,9 +1,16 @@
 import path from "path";
-
 import { getData, postData } from "@/app/api/utils";
 import dbAddress from "@/db";
 
-const filePath = path.join(dbAddress, "users.json");
+// Conditionally set the file path based on environment
+let filePath;
+if (process.env.NODE_ENV === "production") {
+  filePath = path.join(process.cwd(), "src", "db", "users.json");
+} else {
+  filePath = path.join(dbAddress, "users.json");
+}
+
+console.log(filePath, "<----");
 
 export async function POST(req) {
   try {
@@ -11,7 +18,7 @@ export async function POST(req) {
     const users = await getData(filePath);
     const existingUser = users.find((user) => user.email === email);
     if (!existingUser) {
-      return new Response(JSON.stringify({ err: "User does not exists" }), {
+      return new Response(JSON.stringify({ err: "User does not exist" }), {
         status: 400,
         headers: { "Content-Type": "application/json" },
       });
@@ -21,8 +28,8 @@ export async function POST(req) {
         status: 400,
         headers: { "Content-Type": "application/json" },
       });
-    } 
-    const token = await registerToken(email); 
+    }
+    const token = await registerToken(email);
     return new Response(
       JSON.stringify({ token, message: "User logged in successfully" }),
       {
@@ -33,7 +40,7 @@ export async function POST(req) {
       }
     );
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return new Response(JSON.stringify({ err: "Internal Server Error" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
@@ -42,8 +49,12 @@ export async function POST(req) {
 }
 
 const registerToken = async (email) => {
+  const file =
+    process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "src", "db", "tokenRegistry.json")
+      : path.join(dbAddress, "tokenRegistry.json");
+
   const token = new Date().toISOString() + "#@#" + email;
-  const file = path.join(dbAddress, "tokenRegistry.json");
   await postData(file, token);
   return token;
 };

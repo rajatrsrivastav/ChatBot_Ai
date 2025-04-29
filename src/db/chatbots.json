@@ -33,5 +33,10 @@
     "name": "trainer",
     "context": "describe my routine",
     "creator": "dummyuser@example.com"
+  },
+  {
+    "name": "trainer",
+    "context": "Routine setup",
+    "creator": "dummyuser@example.com"
   }
 ]
