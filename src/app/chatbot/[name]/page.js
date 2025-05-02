@@ -4,6 +4,7 @@ import { useParams } from "next/navigation"
 import { getChatbotByName } from "@/services/chatbot"
 import { getToken } from "@/helpers/auth"
 import { askGemini } from "@/services/ai"
+import "./chatbot.css"
 
 export default function Page() {
   const { name: ChatBotName } = useParams()
@@ -40,25 +41,38 @@ export default function Page() {
   }
 
   return (
-    <div>
-      <h1>Chatbot: {botDetails.name}</h1>
-      <p>Context: {botDetails.context}</p>
+    <div className="chatbotV2_wrapper">
+      <div className="chatbot-container">
+        <div className="chatbot-header">
+          <h1>{botDetails.name}</h1>
+          <p>Chat with your AI assistant</p>
+        </div>
 
-      {chatHistory.map((msg, idx) => (
-        <p key={idx}>
-          <strong>{msg.role}:</strong> {msg.text}
-        </p>
-      ))}
+        <div className="chatbot-chat-window">
+          <div className="chatbot-messages">
+            {chatHistory.map((msg, idx) => (
+              <div 
+                key={idx} 
+                className={`chatbot-message ${msg.role === "You" ? "chatbot-user-message" : "chatbot-bot-message"}`}
+              >
+                <div className="chatbot-message-content">
+                  <p>{msg.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-      <div>
-        <input
-          ref={inputRef}
-          placeholder="Type your message..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSend()}
-        />
-        <button onClick={handleSend}>Send</button>
+          <div className="chatbot-input-area">
+            <input
+              ref={inputRef}
+              placeholder="Type your message..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            />
+            <button onClick={handleSend}>Send</button>
+          </div>
+        </div>
       </div>
     </div>
   )
