@@ -1,6 +1,10 @@
 import path from "path";
 import { getData, postData } from "@/app/api/utils";
 import dbAddress from "@/db";
+import User from "@/models/user";
+import Token from "@/models/token";
+import { createConnection } from "@/config/db";
+await createConnection();
 
 // Conditionally set the file path based on environment
 let filePath;
@@ -14,9 +18,9 @@ console.log(filePath, "<----");
 
 export async function POST(req) {
   try {
+
     const { email, password } = await req.json();
-    const users = await getData(filePath);
-    const existingUser = users.find((user) => user.email === email);
+    const existingUser = await User.findOne({ email });
     if (!existingUser) {
       return new Response(JSON.stringify({ err: "User does not exist" }), {
         status: 400,
@@ -49,12 +53,7 @@ export async function POST(req) {
 }
 
 const registerToken = async (email) => {
-  const file =
-    process.env.NODE_ENV === "production"
-      ? path.join(process.cwd(), "src", "db", "tokenRegistry.json")
-      : path.join(dbAddress, "tokenRegistry.json");
-
   const token = new Date().toISOString() + "#@#" + email;
-  await postData(file, token);
-  return token;
+  const newToken = new Token({ token });
+  return newToken.save();
 };

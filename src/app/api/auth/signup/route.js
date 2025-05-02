@@ -2,16 +2,17 @@ import path from "path";
 
 import { getData, postData } from "@/app/api/utils";
 import dbAddress from "@/db";
-
+import User from "@/models/user";
+import { createConnection } from "@/config/db";
+await createConnection();
 const filePath = path.join(dbAddress, "users.json");
 
 export async function POST(req) {
   try {
     const { email, password } = await req.json();
 
-    const users = await getData(filePath);
+    const existingUser = await User.findOne({ email });
 
-    const existingUser = users.find((user) => user.email === email);
     if (existingUser) {
       return new Response(
         JSON.stringify(JSON.stringify({ message: "User already exists" })),
@@ -21,11 +22,12 @@ export async function POST(req) {
         }
       );
     }
+    const user = new User({ email, password });
 
-    await postData(filePath, { email, password });
+    const savedUser = await user.save();
 
     return new Response(
-      JSON.stringify({ message: "User created successfully" }),
+      JSON.stringify({ message: "User created successfully", user: savedUser }),
       { status: 201, headers: { "Content-Type": "application/json" } }
     );
   } catch (err) {

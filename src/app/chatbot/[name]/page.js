@@ -1,93 +1,64 @@
 "use client"
-
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useParams } from "next/navigation"
-import "./chatbot.css"
+import { getChatbotByName } from "@/services/chatbot"
+import { getToken } from "@/helpers/auth"
+import { askGemini } from "@/services/ai"
 
-export default function ChatbotPage() {
-  const { name } = useParams()
-  const [messages, setMessages] = useState([])
-  const [input, setInput] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef(null)
-
-  useEffect(() => {
-    setMessages([
-      {
-        role: "bot",
-        content: `Hi there! I'm ${name}. How can I help you today?`,
-      },
-    ])
-  }, [name])
+export default function Page() {
+  const { name: ChatBotName } = useParams()
+  const inputRef = useRef(null)
+  const [message, setMessage] = useState("")
+  const [chatHistory, setChatHistory] = useState([])
+  const [botDetails, setBotDetails] = useState({ name: "", context: "" })
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [messages])
+    if (!ChatBotName) return
+    const token = getToken()
+    getChatbotByName({ token, name: ChatBotName }).then((data) => {
+      setBotDetails({ name: data.name, context: data.context })
+    })
+  }, [ChatBotName])
 
-  const handleSendMessage = async (e) => {
-    e.preventDefault()
-    if (!input.trim()) return
+  const handleSend = async() => {
+    const response =await askGemini({
+      text:botDetails.name,
+      context:botDetails.context,
+    })
+    const data = await response.json()
+    const botMessage=data.response.candidates[0].content.parts[0].text
+    if (!message.trim()) return
 
-    const userMessage = { role: "user", content: input }
-    setMessages((prev) => [...prev, userMessage])
-    setInput("")
-    setIsLoading(true)
-
-    setTimeout(() => {
-      const botMessage = {
-        role: "bot",
-        content: `As ${name}, I'm processing your request: "${input}". In a complete implementation, I would provide a relevant response based on my training context.`,
-      }
-      setMessages((prev) => [...prev, botMessage])
-      setIsLoading(false)
-    }, 1000)
+    const newMessages = [
+      ...chatHistory,
+      { role: "You", text: message },
+      { role: "Bot", text: botMessage },
+    ]
+    setChatHistory(newMessages)
+    setMessage("")
+    inputRef.current?.focus()
   }
 
   return (
-    <div className="chatbot-container">
-      <div className="chatbot-header">
-        <h1>{name}</h1>
-        <p>Chat with your AI assistant</p>
-      </div>
+    <div>
+      <h1>Chatbot: {botDetails.name}</h1>
+      <p>Context: {botDetails.context}</p>
 
-      <div className="chatbot-chat-window">
-        <div className="chatbot-messages">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`chatbot-message ${message.role === "user" ? "chatbot-user-message" : "chatbot-bot-message"}`}
-            >
-              <div className="chatbot-message-content">
-                <p>{message.content}</p>
-              </div>
-            </div>
-          ))}
-          {isLoading && (
-            <div className="chatbot-message chatbot-bot-message">
-              <div className="chatbot-message-content">
-                <div className="chatbot-typing-indicator">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
+      {chatHistory.map((msg, idx) => (
+        <p key={idx}>
+          <strong>{msg.role}:</strong> {msg.text}
+        </p>
+      ))}
 
-        <form onSubmit={handleSendMessage} className="chatbot-input-area">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
-            disabled={isLoading}
-          />
-          <button type="submit" disabled={isLoading || !input.trim()}>
-            Send
-          </button>
-        </form>
+      <div>
+        <input
+          ref={inputRef}
+          placeholder="Type your message..."
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSend()}
+        />
+        <button onClick={handleSend}>Send</button>
       </div>
     </div>
   )

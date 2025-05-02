@@ -1,7 +1,9 @@
+import { createConnection } from "@/config/db";
 import { createChatbot, verifyToken } from "../../utils";
-
+await createConnection();
 export async function POST(req) {
-  try {
+
+  try {    
     const authHeader = req.headers.get("authorization");
     const accessToken = authHeader?.split(" ")[1];
 
@@ -11,6 +13,7 @@ export async function POST(req) {
         headers: { "Content-Type": "application/json" },
       });
     }
+
     const email = accessToken.split("#@#")[1];
     const { name, context } = await req.json();
     await createChatbot({ name, context, email });

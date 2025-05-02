@@ -1,4 +1,6 @@
+import { createConnection } from "@/config/db";
 import { getChatbotByCreator, verifyToken } from "../../utils";
+await createConnection();
 
 export async function GET(req) {
   try {
