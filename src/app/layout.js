@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import AuthProvider from "@/context/auth";
 import ChatbotProvider from "@/context/chatbot";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = {
   title: "Create Next App",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
             {children}
           </ChatbotProvider>
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );
