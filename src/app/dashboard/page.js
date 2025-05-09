@@ -31,7 +31,7 @@ const Dashboard = () => {
         console.error(err)
         setIsLoading(false)
       })
-  }, [setChatbots])  // Add setChatbots as a dependency
+  }, [setChatbots]) 
 
   if (!isLoggedIn) {
     return (

@@ -26,7 +26,7 @@ function Login() {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      if (isLoading) return; // Prevent multiple submissions
+      if (isLoading) return; 
       
       setIsLoading(true);
       const response = await login(form);

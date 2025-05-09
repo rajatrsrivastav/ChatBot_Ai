@@ -25,7 +25,7 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isLoading) return; // Prevent multiple submissions
+    if (isLoading) return;
     
     try {
       if (!form.name || !form.email || !form.password) {

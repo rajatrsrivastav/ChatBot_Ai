@@ -25,7 +25,6 @@ export default function Page() {
   }, [ChatBotName])
 
   useEffect(() => {
-    // Scroll to bottom whenever chat history changes
     messagesEndRef?.current?.scrollIntoView({ behavior: "smooth" })
   }, [chatHistory])
 
@@ -35,7 +34,6 @@ export default function Page() {
     setIsButtonDisabled(true)
     setIsTyping(true)
     
-    // Add user message
     const userMessage = message
     setChatHistory(prev => [...prev, { role: "You", text: userMessage }])
     setMessage("")
@@ -48,14 +46,12 @@ export default function Page() {
       const data = await response.json()
       const botMessage = data.response.candidates[0].content.parts[0].text
       
-      // Add bot response
       setChatHistory(prev => [...prev, { role: "Bot", text: botMessage }])
     } catch (error) {
       console.error("Error getting response:", error)
       setChatHistory(prev => [...prev, { role: "Bot", text: "Sorry, I encountered an error. Please try again." }])
     } finally {
       setIsTyping(false)
-      // Re-enable button after a short delay
       setTimeout(() => {
         setIsButtonDisabled(false)
       }, 500)
