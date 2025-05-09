@@ -47,7 +47,7 @@ function SetApiKey() {
           <ol>
             <li>Go to the <a href="https://ai.google.dev/gemini-api/docs/api-key" target="_blank" rel="noopener noreferrer" className="link_api">Gemini website</a>.</li>
             <li>Click on <strong>Get a Gemini API key in Google AI Studio</strong> to generate your unique API key.</li>
-            <li>Log in to your Google account (or create one if you don't have one yet).</li>
+            <li>Log in to your Google account (or create one if you don not have one yet).</li>
             <li>Once logged in, Click on  <strong>+ Create API key</strong> button on top right</li>
             <li>Once generated, copy the API key and paste it into the field below.</li>
           </ol>
