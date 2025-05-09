@@ -4,6 +4,7 @@ html {
   height: 100vh;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
+
 .login_loading {
     display: flex;
     align-items: center;
