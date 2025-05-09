@@ -1,5 +1,5 @@
+import bcrypt from "bcrypt";
 import path from "path";
-import { getData, postData } from "@/app/api/utils";
 import dbAddress from "@/db";
 import User from "@/models/user";
 import Token from "@/models/token";
@@ -27,7 +27,8 @@ export async function POST(req) {
         headers: { "Content-Type": "application/json" },
       });
     }
-    if (existingUser.password !== password) {
+    const isMatch = await bcrypt.compare(password, existingUser.password);
+    if (!isMatch) {
       return new Response(JSON.stringify({ err: "Password does not match" }), {
         status: 400,
         headers: { "Content-Type": "application/json" },
