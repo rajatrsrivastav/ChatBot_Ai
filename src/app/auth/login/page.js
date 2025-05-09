@@ -10,6 +10,7 @@ import { AuthContext } from "@/context/auth";
 function Login() {
   const router = useRouter();
   const { setIsLoggedIn } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -25,6 +26,9 @@ function Login() {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+      if (isLoading) return; // Prevent multiple submissions
+      
+      setIsLoading(true);
       const response = await login(form);
       const {
         token: { token },
@@ -35,6 +39,8 @@ function Login() {
     } catch (err) {
       alert(err);
       console.log(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -57,6 +63,7 @@ function Login() {
             name="email"
             type="email"
             placeholder="dummyuser@example.com"
+            disabled={isLoading}
           />
           <br />
           <label className="label_form1">Password</label>
@@ -66,10 +73,18 @@ function Login() {
             name="password"
             type="password"
             placeholder="password123"
+            disabled={isLoading}
           />
           <br />
-          <button className="buttonn_form" type="submit">
-            Login
+          <button className="buttonn_form" type="submit" disabled={isLoading}>
+            {isLoading ? (
+              <span className="login_loading">
+                <span className="login_spinner"></span>
+                Logging in...
+              </span>
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
         <hr className="hr2"></hr>

@@ -16,12 +16,21 @@ const Dashboard = () => {
   const { chatbots, setChatbots } = useContext(ChatbotContext)
   const [botName, setBotName] = useState("")
   const [botContext, setBotContext] = useState("")
+  const [isLoading, setIsLoading] = useState(true)
+  const [isCreating, setIsCreating] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
-    getChatBots({ token: getToken() }).then((res) => {
-      setChatbots(res)
-    })
+    setIsLoading(true)
+    getChatBots({ token: getToken() })
+      .then((res) => {
+        setChatbots(res)
+        setIsLoading(false)
+      })
+      .catch(err => {
+        console.error(err)
+        setIsLoading(false)
+      })
   }, [setChatbots])  // Add setChatbots as a dependency
 
   if (!isLoggedIn) {
@@ -41,14 +50,22 @@ const Dashboard = () => {
   }
 
   const handleAddBot = async () => {
-    if (botName.trim() === "" || botContext.trim() === "") return
+    if (botName.trim() === "" || botContext.trim() === "" || isCreating) return
 
-    const newBot = { name: botName, context: botContext }
-    setChatbots((prev) => [...prev, newBot])
-    await createChatBot({ name: botName, context: botContext, token: getToken() })
+    setIsCreating(true)
+    try {
+      const newBot = { name: botName, context: botContext }
+      setChatbots((prev) => [...prev, newBot])
+      await createChatBot({ name: botName, context: botContext, token: getToken() })
 
-    setBotName("")
-    setBotContext("")
+      setBotName("")
+      setBotContext("")
+    } catch (error) {
+      console.error("Failed to create bot:", error)
+      alert("Failed to create bot. Please try again.")
+    } finally {
+      setIsCreating(false)
+    }
   }
 
   return (
@@ -64,6 +81,7 @@ const Dashboard = () => {
             value={botName}
             onChange={(e) => setBotName(e.target.value)}
             placeholder="Enter a name for your chatbot"
+            disabled={isCreating}
           />
         </div>
         <div className="form-group">
@@ -74,32 +92,52 @@ const Dashboard = () => {
             onChange={(e) => setBotContext(e.target.value)}
             placeholder="Describe what your chatbot should know and how it should respond"
             rows={5}
+            disabled={isCreating}
           ></textarea>
         </div>
-        <button className="add-bot-button" onClick={handleAddBot}>
-          Create Chatbot
+        <button className="add-bot-button" onClick={handleAddBot} disabled={isCreating}>
+          {isCreating ? (
+            <span className="dashboard_loading">
+              <span className="dashboard_spinner"></span>
+              Creating...
+            </span>
+          ) : (
+            "Create Chatbot"
+          )}
         </button>
       </div>
 
       <div className="dashboard-bots">
         <h2>Your Chatbots</h2>
-        <div className="bot-list">
-          {chatbots.length === 0 ? (
-            <p className="no-bots">You have not created any chatbots yet.</p>
-          ) : (
-            chatbots.map((bot, index) => (
-              <div key={index} className="bot-item">
-                <div className="bot-info">
-                  <h3>{bot.name}</h3>
-                  <p>{bot.context}</p>
-                </div>
-                <button onClick={() => router.push(`/chatbot/${bot.name}`)} className="chat-button">
-                  Open Chat
-                </button>
+        {isLoading ? (
+          <div className="dashboard_skeleton_container">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="dashboard_skeleton_item">
+                <div className="dashboard_skeleton_title"></div>
+                <div className="dashboard_skeleton_context"></div>
+                <div className="dashboard_skeleton_actions"></div>
               </div>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="bot-list">
+            {chatbots.length === 0 ? (
+              <p className="no-bots">You have not created any chatbots yet.</p>
+            ) : (
+              chatbots.map((bot, index) => (
+                <div key={index} className="bot-item">
+                  <div className="bot-info">
+                    <h3>{bot.name}</h3>
+                    <p>{bot.context}</p>
+                  </div>
+                  <button onClick={() => router.push(`/chatbot/${bot.name}`)} className="chat-button">
+                    Open Chat
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
+        )}
       </div>
     </div>
   )

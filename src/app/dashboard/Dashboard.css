@@ -1,3 +1,66 @@
+.dashboard_loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard_spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: dashboard_spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes dashboard_spin {
+  to { transform: rotate(360deg); }
+}
+
+.dashboard_skeleton_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.dashboard_skeleton_item {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 6px;
+  animation: dashboard_pulse 1.5s infinite ease-in-out;
+}
+
+.dashboard_skeleton_title {
+  height: 24px;
+  background-color: #eee;
+  width: 70%;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.dashboard_skeleton_context {
+  height: 60px;
+  background-color: #eee;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.dashboard_skeleton_actions {
+  height: 36px;
+  background-color: #eee;
+  width: 30%;
+  margin-left: auto;
+  border-radius: 4px;
+}
+
+@keyframes dashboard_pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;

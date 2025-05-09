@@ -8,6 +8,7 @@ import { signup } from "@/services/auth";
 
 function Signup() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -24,12 +25,15 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isLoading) return; // Prevent multiple submissions
+    
     try {
       if (!form.name || !form.email || !form.password) {
         alert("Please fill all fields!");
         return;
       }
 
+      setIsLoading(true);
       const response = await signup(form);
       const data = await response.json();
       alert(data.message);
@@ -37,6 +41,8 @@ function Signup() {
     } catch (err) {
       console.error(err);
       alert("Signup failed. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -58,6 +64,7 @@ function Signup() {
             placeholder="Your Name"
             value={form.name}
             onChange={handleForm}
+            disabled={isLoading}
           />
           <br />
           <label className="label_form">Email</label>
@@ -69,6 +76,7 @@ function Signup() {
             placeholder="name@example.com"
             value={form.email}
             onChange={handleForm}
+            disabled={isLoading}
           />
           <br />
           <label className="label_form">Password</label>
@@ -80,9 +88,19 @@ function Signup() {
             placeholder="Password"
             value={form.password}
             onChange={handleForm}
+            disabled={isLoading}
           />
           <br />
-          <button className="submitButton" type="submit">Signup</button>
+          <button className="submitButton" type="submit" disabled={isLoading}>
+            {isLoading ? (
+              <span className="signup_loading">
+                <span className="signup_spinner"></span>
+                Signing up...
+              </span>
+            ) : (
+              "Signup"
+            )}
+          </button>
         </form>
 
         <hr className="hr1" />
