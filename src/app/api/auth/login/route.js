@@ -43,7 +43,7 @@ export async function POST(req) {
 }
 
 const registerToken = async (email) => {
-  const token = jwt.sign({email},process.env.JWT_SECRET)
+  const token = new Date().toISOString() + "#@#" + email;
   const newToken = new Token({ token });
   return newToken.save();
 };

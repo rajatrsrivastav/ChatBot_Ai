@@ -39,13 +39,18 @@ export default function Page() {
     setMessage("")
     
     try {
-      const response = await askGemini({
-        text: botDetails.name,
+      const data = await askGemini({
+        text: userMessage,
         context: botDetails.context,
       })
-      const data = await response.json()
-      const botMessage = data.response.candidates[0].content.parts[0].text
-      
+      let botMessage = "";
+      if (data?.reply) {
+        botMessage = data.reply;
+      } else if (data?.response?.candidates?.[0]?.content?.parts?.[0]?.text) {
+        botMessage = data.response.candidates[0].content.parts[0].text;
+      } else {
+        botMessage = "(No response received)";
+      }
       setChatHistory(prev => [...prev, { role: "Bot", text: botMessage }])
     } catch (error) {
       console.error("Error getting response:", error)
