@@ -17,9 +17,10 @@ function Login() {
   });
 
   const handleForm = (e) => {
+    const {name,value}=e.target
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -27,7 +28,6 @@ function Login() {
     try {
       e.preventDefault();
       if (isLoading) return; 
-      
       setIsLoading(true);
       const response = await login(form);
       const {

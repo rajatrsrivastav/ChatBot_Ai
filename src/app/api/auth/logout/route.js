@@ -1,11 +1,6 @@
-import path from "path";
-
-import { getData, putData } from "@/app/api/utils";
-import dbAddress from "@/db";
 import { createConnection } from "@/config/db";
 import Token from "@/models/token";
 await createConnection();
-const tokenFilePath = path.join(dbAddress, "tokenRegistry.json");
 
 export async function POST(req) {
   try {

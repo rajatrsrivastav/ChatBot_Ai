@@ -37,7 +37,7 @@ function Signup() {
       const response = await signup(form);
       const data = await response.json();
       alert(data.message);
-      router.push("/set-api-key");
+      router.push("/auth/login");
     } catch (err) {
       console.error(err);
       alert("Signup failed. Please try again.");

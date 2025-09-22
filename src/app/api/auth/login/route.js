@@ -1,24 +1,13 @@
 import bcrypt from "bcrypt";
-import path from "path";
-import dbAddress from "@/db";
 import User from "@/models/user";
 import Token from "@/models/token";
 import { createConnection } from "@/config/db";
+import jwt from "jsonwebtoken"
 await createConnection();
 
-// Conditionally set the file path based on environment
-let filePath;
-if (process.env.NODE_ENV === "production") {
-  filePath = path.join(process.cwd(), "src", "db", "users.json");
-} else {
-  filePath = path.join(dbAddress, "users.json");
-}
-
-console.log(filePath, "<----");
 
 export async function POST(req) {
   try {
-
     const { email, password } = await req.json();
     const existingUser = await User.findOne({ email });
     if (!existingUser) {
@@ -54,7 +43,7 @@ export async function POST(req) {
 }
 
 const registerToken = async (email) => {
-  const token = new Date().toISOString() + "#@#" + email;
+  const token = jwt.sign({email},process.env.JWT_SECRET)
   const newToken = new Token({ token });
   return newToken.save();
 };

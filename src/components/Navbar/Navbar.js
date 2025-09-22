@@ -11,6 +11,7 @@ import { destroyToken, getToken } from "@/helpers/auth"
 
 import "./Navbar.css"
 import Link from "next/link"
+import Image from 'next/image'
 
 const Navbar = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
@@ -41,7 +42,12 @@ const Navbar = () => {
     <nav className="navbar">
       <Link href="/">
         <div className="navbar-logo">
-          <Bot />
+          <Image
+          src="/logo.jpg"   
+          alt="Logo"
+          width={40}          
+          height={45}         
+          />
           <p>PeerBot</p>
         </div>
       </Link>

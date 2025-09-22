@@ -1,11 +1,6 @@
-import path from "path";
-
-import { getData, postData } from "@/app/api/utils";
-import dbAddress from "@/db";
 import User from "@/models/user";
 import { createConnection } from "@/config/db";
 await createConnection();
-const filePath = path.join(dbAddress, "users.json");
 
 export async function POST(req) {
   try {
