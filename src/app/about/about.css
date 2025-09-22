@@ -6,11 +6,12 @@
   }
   
   .about-hero {
-    background-color: #6c5ce7;
-    color: white;
-    padding: 5rem 2rem;
-    text-align: center;
-  }
+      background-color: #ffffff; /* switched to white */
+      color: #1a1a1a;
+      padding: 5rem 2rem;
+      text-align: center;
+      border-bottom:1px solid #f0f1f2;
+    }
   
   .about-hero h1 {
     font-size: 3rem;
@@ -19,11 +20,11 @@
   }
   
   .about-hero p {
-    font-size: 1.25rem;
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0.9;
-  }
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color:#555;
+    }
   
   .about-mission {
     padding: 5rem 2rem;
@@ -147,11 +148,12 @@
   
   /* CTA Section */
   .about-cta {
-    background-color: #6c5ce7;
-    color: white;
-    padding: 5rem 2rem;
-    text-align: center;
-  }
+      background-color: #ffffff; /* unify white */
+      color: #1a1a1a;
+      padding: 5rem 2rem;
+      text-align: center;
+      border-top:1px solid #f0f1f2;
+    }
   
   .about-cta h2 {
     font-size: 2.5rem;
@@ -160,14 +162,14 @@
   }
   
   .about-cta p {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color:#555;
+    }
   
   .about-cta-buttons {
     display: flex;
@@ -176,36 +178,30 @@
     flex-wrap: wrap;
   }
   
-  .about-primary-button {
-    display: inline-block;
-    background-color: white;
-    color: #6c5ce7;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.2s;
-  }
+    .about-primary-button {
+      display: inline-block;
+      background-color: #6c5ce7; /* solid accent now */
+      color: #ffffff;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    .about-primary-button:hover { background-color:#5649c0; }
   
-  .about-primary-button:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .about-secondary-button {
-    display: inline-block;
-    background-color: transparent;
-    color: white;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    text-decoration: none;
-    border: 1px solid white;
-    transition: background-color 0.2s;
-  }
-  
-  .about-secondary-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+    .about-secondary-button {
+      display: inline-block;
+      background-color: transparent;
+      color: #6c5ce7;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      border: 1px solid #6c5ce7;
+      transition: background-color 0.2s;
+    }
+    .about-secondary-button:hover { background-color: rgba(108,92,231,0.1); }
   
   /* Responsive Design */
   @media (max-width: 768px) {

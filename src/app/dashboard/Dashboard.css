@@ -66,6 +66,7 @@
   margin: 0 auto;
   padding: 2rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background:#ffffff; /* ensure white page background */
 }
 
 .dashboard-title {
@@ -81,9 +82,10 @@
 }
 
 .dashboard-message {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  border-radius: 10px;
+  border:1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
   padding: 2rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -112,9 +114,10 @@
 }
 
 .dashboard-form {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  border-radius: 10px;
+  border:1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
   padding: 2rem;
   margin-bottom: 2rem;
 }
@@ -191,18 +194,19 @@
 }
 
 .bot-item {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  border-radius: 10px;
+  border:1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .bot-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .bot-info {

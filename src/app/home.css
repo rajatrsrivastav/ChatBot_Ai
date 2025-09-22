@@ -143,10 +143,12 @@ html {
   }
   
   .homepage-features {
-    background-color: #f8f9fa;
-    padding: 5rem 2rem;
-    text-align: center;
-  }
+      background-color: #ffffff; /* unified white section */
+      padding: 5rem 2rem;
+      text-align: center;
+      border-top: 1px solid #f0f1f2;
+      border-bottom: 1px solid #f0f1f2;
+    }
   
   .homepage-features h2 {
     font-size: 2.5rem;
@@ -164,9 +166,10 @@ html {
   }
   
   .homepage-feature-card {
-    background-color: white;
+    background-color: #ffffff;
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 10px;
+    border:1px solid #e5e7eb;
   }
   
   .homepage-feature-icon {
@@ -207,11 +210,12 @@ html {
   }
   
   .homepage-use-case {
-    background-color: #f8f9fa;
-    padding: 2rem;
-    border-radius: 8px;
-    border-left: 4px solid #6c5ce7;
-  }
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      border:1px solid #e5e7eb;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
   
   .homepage-use-case h3 {
     font-size: 1.25rem;
@@ -296,11 +300,12 @@ html {
   }
   
   .homepage-cta {
-    background-color: #6c5ce7;
-    color: white;
-    padding: 5rem 2rem;
-    text-align: center;
-  }
+      background-color: #ffffff; /* unify white */
+      color: #1a1a1a;
+      padding: 5rem 2rem;
+      text-align: center;
+      border-top: 1px solid #f0f1f2;
+    }
   
   .homepage-cta-content {
     max-width: 800px;
@@ -327,23 +332,20 @@ html {
     flex-wrap: wrap;
   }
   
-  .homepage-cta .homepage-primary-button {
-    background-color: white;
-    color: #6c5ce7;
-  }
-  
-  .homepage-cta .homepage-primary-button:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .homepage-cta .homepage-secondary-button {
-    color: white;
-    border-color: white;
-  }
-  
-  .homepage-cta .homepage-secondary-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+    .homepage-cta .homepage-primary-button {
+      background-color: #6c5ce7;
+      color: #ffffff;
+    }
+    .homepage-cta .homepage-primary-button:hover {
+      background-color: #5649c0;
+    }
+    .homepage-cta .homepage-secondary-button {
+      color: #6c5ce7;
+      border-color: #6c5ce7;
+    }
+    .homepage-cta .homepage-secondary-button:hover {
+      background-color: rgba(108,92,231,0.1);
+    }
   
   @media (max-width: 992px) {
     .homepage-hero {
