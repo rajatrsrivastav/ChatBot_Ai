@@ -18,7 +18,6 @@ const Navbar = () => {
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
 
-  // Close mobile nav on route change
   useEffect(() => {
     setIsOpen(false)
   }, [pathname])

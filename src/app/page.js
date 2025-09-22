@@ -1,7 +1,11 @@
 export const dynamic = 'force-dynamic';
 import "./home.css"
+import { AuthContext } from "@/context/auth"
+import { useContext } from "react"
+
 
 export default function Home() {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
   return (
     <div className="homepage-container">
       <section className="homepage-hero">
@@ -12,7 +16,7 @@ export default function Home() {
             <a href="/explore" className="homepage-primary-button">
               Explore Bots
             </a>
-            <a href="/auth/login" className="homepage-secondary-button">
+            <a href={isLoggedIn ? "/dashboard" : "/auth/signup"} className="homepage-secondary-button">
               Get Started
             </a>
           </div>
@@ -91,8 +95,8 @@ export default function Home() {
           <h2>Ready to Get Started?</h2>
           <p>Create your first chatbot in minutes and experience the power of instant AI guidance.</p>
           <div className="homepage-cta-buttons">
-            <a href="/auth/signup" className="homepage-primary-button">
-              Sign Up Free
+            <a href={isLoggedIn ? "/dashboard" : "/auth/signup"} className="homepage-primary-button">
+              Get Started
             </a>
             <a href="/explore" className="homepage-secondary-button">
               Explore Bots

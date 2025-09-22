@@ -1,6 +1,11 @@
+"use client"
 import "./about.css"
+import { AuthContext } from "@/context/auth"
+import { useContext } from "react"
 
 const About = () => {
+    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
+
   return (
     <div className="about-container">
       <section className="about-hero">
@@ -62,7 +67,7 @@ const About = () => {
         <h2>Ready to experience PeerBot?</h2>
         <p>Create your first AI assistant in minutes and start getting the guidance you need.</p>
         <div className="about-cta-buttons">
-          <a href="/auth/signup" className="about-primary-button">
+          <a href={isLoggedIn ? "/dashboard" : "/auth/signup"} className="about-primary-button">
             Get Started
           </a>
           <a href="/explore" className="about-secondary-button">
