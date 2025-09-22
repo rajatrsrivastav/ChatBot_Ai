@@ -13,7 +13,6 @@ export async function POST(req) {
         headers: { "Content-Type": "application/json" },
       });
     }
-
     const email = accessToken.split("#@#")[1];
     const { name, context } = await req.json();
     await createChatbot({ name, context, email });
