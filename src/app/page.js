@@ -70,7 +70,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="homepage-how-it-works">
+      {/* <section className="homepage-how-it-works">
         <h2>How It Works</h2>
         <div className="homepage-steps">
           <div className="homepage-step">
@@ -89,7 +89,7 @@ export default function Home() {
             <p>Instantly use your bot or share it with others who need assistance.</p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="homepage-cta">
         <div className="homepage-cta-content">

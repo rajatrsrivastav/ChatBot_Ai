@@ -6,7 +6,7 @@
   }
   
   .about-hero {
-      background-color: #ffffff; /* switched to white */
+      background-color: #ffffff;
       color: #1a1a1a;
       padding: 5rem 2rem;
       text-align: center;
@@ -51,7 +51,6 @@
     color: #555;
   }
   
-  /* Vision Section */
   .about-vision {
     padding: 5rem 2rem;
     background-color: #f8f9fa;
@@ -88,8 +87,6 @@
     margin-bottom: 0.75rem;
     color: #555;
   }
-  
-  /* How It Works Section */
   .about-how-it-works {
     padding: 5rem 2rem;
     background-color: white;
@@ -146,9 +143,8 @@
     color: #555;
   }
   
-  /* CTA Section */
   .about-cta {
-      background-color: #ffffff; /* unify white */
+      background-color: #ffffff;
       color: #1a1a1a;
       padding: 5rem 2rem;
       text-align: center;
@@ -180,7 +176,7 @@
   
     .about-primary-button {
       display: inline-block;
-      background-color: #6c5ce7; /* solid accent now */
+      background-color: #6c5ce7;
       color: #ffffff;
       font-weight: 600;
       padding: 0.75rem 1.5rem;
@@ -203,7 +199,6 @@
     }
     .about-secondary-button:hover { background-color: rgba(108,92,231,0.1); }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
     .about-hero {
       padding: 4rem 1.5rem;

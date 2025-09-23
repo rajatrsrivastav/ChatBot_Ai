@@ -32,7 +32,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background:#ffffff; /* ensure white page background */
+  background:#ffffff;
 }
 .text{
     display: flex;
@@ -46,19 +46,19 @@ html {
 }
 .form{
     margin-top:1rem ;
-    border: 1px solid #e5e7eb; /* softer border */
+    border: 1px solid #e5e7eb;
     width: 23rem;
     height: 25rem;
     border-radius: 14px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background:#ffffff; /* white card */
+    background:#ffffff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.06);
     position: relative;
     overflow: hidden;
 }
-.form:before{ /* subtle decorative radial tint */
+.form:before{
   content:"";
   position:absolute;
   inset:0;

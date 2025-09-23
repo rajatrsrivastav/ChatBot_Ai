@@ -8,10 +8,10 @@ const About = () => {
 
   return (
     <div className="about-container">
-      <section className="about-hero">
+      {/* <section className="about-hero">
         <h1>About PeerBot</h1>
         <p>Your AI-powered assistant platform for instant guidance and support</p>
-      </section>
+      </section> */}
 
       <section className="about-mission">
         <div className="about-mission-content">
