@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import "./login.css";
 import { login } from "@/services/auth";
 import { AuthContext } from "@/context/auth";
+import PublicRoute from "@/components/PublicRoute";
 
 function Login() {
   const router = useRouter();
@@ -104,4 +105,10 @@ function Login() {
     </div>
   );
 }
-export default Login;
+export default function ProtectedLogin() {
+  return (
+    <PublicRoute>
+      <Login />
+    </PublicRoute>
+  )
+}

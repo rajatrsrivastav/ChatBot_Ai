@@ -8,11 +8,11 @@ import { AuthContext } from "@/context/auth"
 import { ChatbotContext } from "@/context/chatbot"
 import { createChatBot, getChatBots } from "@/services/chatbot"
 import { getToken } from "@/helpers/auth"
+import PrivateRoute from "@/components/PrivateRoute"
 
 import "./Dashboard.css"
 
 const Dashboard = () => {
-  const { isLoggedIn } = useContext(AuthContext)
   const { chatbots, setChatbots } = useContext(ChatbotContext)
   const [botName, setBotName] = useState("")
   const [botContext, setBotContext] = useState("")
@@ -31,23 +31,7 @@ const Dashboard = () => {
         console.error(err)
         setIsLoading(false)
       })
-  }, [setChatbots]) 
-
-  if (!isLoggedIn) {
-    return (
-      <div className="dashboard-not-logged-in">
-        <div className="dashboard-container">
-          <h1 className="dashboard-title">Dashboard</h1>
-          <div className="dashboard-message">
-            <p className="dashboard-error">You are not logged in</p>
-            <Link href="/auth/login" className="dashboard-login-link">
-              Click here to Login
-            </Link>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  }, [setChatbots])
 
   const handleAddBot = async () => {
     if (botName.trim() === "" || botContext.trim() === "" || isCreating) return
@@ -143,4 +127,10 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default function ProtectedDashboard() {
+  return (
+    <PrivateRoute>
+      <Dashboard />
+    </PrivateRoute>
+  )
+}

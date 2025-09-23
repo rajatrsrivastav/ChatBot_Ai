@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import "./signup.css";
 import { signup } from "@/services/auth";
+import PublicRoute from "@/components/PublicRoute";
 
 function Signup() {
   const router = useRouter();
@@ -116,4 +117,10 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default function ProtectedSignup() {
+  return (
+    <PublicRoute>
+      <Signup />
+    </PublicRoute>
+  )
+}

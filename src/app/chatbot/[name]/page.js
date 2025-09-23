@@ -4,9 +4,10 @@ import { useParams } from "next/navigation"
 import { getChatbotByName } from "@/services/chatbot"
 import { getToken } from "@/helpers/auth"
 import { askGemini } from "@/services/ai"
+import PrivateRoute from "@/components/PrivateRoute"
 import "./chatbot.css"
 
-export default function Page() {
+function ChatbotPage() {
   const { name: ChatBotName } = useParams()
   const inputRef = useRef(null)
   const [message, setMessage] = useState("")
@@ -120,5 +121,13 @@ export default function Page() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ProtectedChatbotPage() {
+  return (
+    <PrivateRoute>
+      <ChatbotPage />
+    </PrivateRoute>
   )
 }
