@@ -33,7 +33,6 @@ function Signup() {
         alert("Please fill all fields!");
         return;
       }
-
       setIsLoading(true);
       const response = await signup(form);
       const data = await response.json();
