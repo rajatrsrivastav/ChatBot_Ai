@@ -127,8 +127,6 @@ function ChatbotPage() {
 
 export default function ProtectedChatbotPage() {
   return (
-    <PrivateRoute>
       <ChatbotPage />
-    </PrivateRoute>
   )
 }
